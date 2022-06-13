@@ -48,7 +48,7 @@ export default {
         const res = new Response(null, { status: 204 });
         res.headers.append(
           "Access-Control-Allow-Origin",
-          "https://localdev.azechi.net"
+          "https://azechi.github.io"
         );
         res.headers.append("Access-Control-Allow-Methods", "POST");
         res.headers.append(
@@ -81,7 +81,7 @@ export default {
 
       res.headers.append(
         "Access-Control-Allow-Origin",
-        "https://localdev.azechi.net"
+        "https://azechi.github.io"
       );
       res.headers.append("Access-Control-Allow-Credentials", "true");
       return res;
