@@ -1,0 +1,10 @@
+name = "discord-oauth2-pkce-in-cloudlfare-workers"
+main = "src/index.ts"
+compatibility_date = "2022-06-03"
+
+[vars]
+discord_client_id = '984687289764556820'
+
+#[secret]
+#secret_key
+
