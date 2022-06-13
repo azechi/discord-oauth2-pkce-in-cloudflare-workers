@@ -1,6 +1,14 @@
 const STORAGE_KEY = "code_verifier";
 const storage = window.sessionStorage;
 
+const loaded = new Promise(result => {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', result, {once: true})
+  } else {
+    result();
+  }
+});
+
 const url = new URL(window.location);
 if (
   ["code", "state"].every(Array.prototype.includes, [
@@ -33,18 +41,19 @@ async function handleRedirectCallback() {
       redirect_uri: "https://azechi.github.io/discord-oauth2-pkce-in-cloudflare-workers/",
     }),
   })
-    .then((res) => res.text());
+    .then((res) => res.json());
 
   console.log(result);
+
+  await loaded;
+
+  const img = document.createElement("img");
+  img.src = `https://cdn.discordapp.com/avatars/${result.id}/${result.avatar}.jpeg`;
+  document.body.appendChild(img);
+
+
 }
 
-const loaded = new Promise(result => {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', result, {once: true})
-  } else {
-    result();
-  }
-});
 
 await loaded;
 const button = document.getElementById("button");
