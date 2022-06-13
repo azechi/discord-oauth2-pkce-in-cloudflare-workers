@@ -1,5 +1,5 @@
 {
-  "name": "azechify_auth",
+  "name": "discord-oauth2-pkce-in-cloudflare-workers",
   "version": "0.0.0",
   "devDependencies": {
     "@cloudflare/workers-types": "^3.11.0",
